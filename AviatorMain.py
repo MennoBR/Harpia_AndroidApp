@@ -1,5 +1,6 @@
 
 import APIClimaNOW
+import Aviator2ndTela
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
@@ -8,6 +9,7 @@ from kivy.graphics import Color, Rectangle
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.core.window import Window
+from kivy.clock import Clock
 
 
 class Harpia(App):
@@ -38,6 +40,12 @@ class Harpia(App):
 
     def pressiona(self, evento):
         self.greeting.text = "Olá Comandante " + self.user.text + '!'
+
+        Clock.schedule_once(self.mostre_segunda, 2)
+
+    def mostre_segunda(self, dt):
+        self.window.clear_widgets()
+        self.window.add_widget(Aviator2ndTela.SegundaTela())
 
 
 
