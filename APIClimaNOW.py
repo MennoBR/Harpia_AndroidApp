@@ -1,3 +1,4 @@
+
 # API básica de monitoramento do clima na região de Blumenau.
 
  
