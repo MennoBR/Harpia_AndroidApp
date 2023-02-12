@@ -1,5 +1,5 @@
 
-# API básica de monitoramento do clima na região de Blumenau.
+# API básica de monitoramento do clima na região da cidade indicada.
 
  
 import requests
@@ -14,26 +14,31 @@ def Padrao_Kelvin(kelvin):
 
 
 # Obtendo informações:
+ def get_atual():
+    BASE_URL =  "http://api.openweathermap.org/data/2.5/weather?"
+    API_KEY = "6c72ca7e4174d6429033197dabb040ca"
+    CITY = "São Paulo"
+    url = BASE_URL + "appid=" + API_KEY + "&q=" + CITY
 
-BASE_URL =  "http://api.openweathermap.org/data/2.5/weather?"
-API_KEY = "6c72ca7e4174d6429033197dabb040ca"
-CITY = "São Paulo"
-url = BASE_URL + "appid=" + API_KEY + "&q=" + CITY
 
+    resposta = requests.get(url).json()
+    temp_kelvin = resposta['main']['temp']
+    temp_celsius, temp_fahrenheit = Padrao_Kelvin(temp_kelvin)
+    sensacao_kelvin = resposta['main']['feels_like']
+    sensacao_celsius, sensacao_fahrenheit = Padrao_Kelvin(sensacao_kelvin)
+    umidade = resposta['main']['humidity']
+    descricao = resposta['weather'][0]['description']
+    vento_velo = resposta['wind']['speed']
+    nascer_sol = dt.datetime.utcfromtimestamp(resposta['sys']['sunrise'] + resposta['timezone'])
+    por_do_sol = dt.datetime.utcfromtimestamp(resposta['sys']['sunset'] + resposta['timezone'])
 
-# Definindo as conversões de temp e respostas:
-
-resposta = requests.get(url).json()
-temp_kelvin = resposta['main']['temp']
-temp_celsius, temp_fahrenheit = Padrao_Kelvin(temp_kelvin)
-sensacao_kelvin = resposta['main']['feels_like']
-sensacao_celsius, sensacao_fahrenheit = Padrao_Kelvin(sensacao_kelvin)
-umidade = resposta['main']['humidity']
-descricao = resposta['weather'][0]['description']
-vento_velo = resposta['wind']['speed']
-nascer_sol = dt.datetime.utcfromtimestamp(resposta['sys']['sunrise'] + resposta['timezone'])
-por_do_sol = dt.datetime.utcfromtimestamp(resposta['sys']['sunset'] + resposta['timezone'])
-
+atual = {
+        'city': CITY,
+        'temperature': temp_celsius,
+        'humidity': umidade,
+        'description': descricao
+    }
+    return atual
 
 # Mostrando as informações ao Usuário:
 
