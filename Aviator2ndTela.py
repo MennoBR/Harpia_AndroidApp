@@ -15,7 +15,7 @@ class SegundaTela(GridLayout):
         self.add_widget(Label(text="", size_hint_y=None, height=100, color=[1, 1, 1, 1]))
 
 
-        atual = APIClimaNOW.get_atual()
+        atual = APIClimaNOW.get_atual("São Paulo")
         self.add_widget(Label(text=f"Cidade: {atual['city']}", font_size=15))
         self.add_widget(Label(text=f"Temperatura: {atual['temperature']} °C", font_size=15))
         self.add_widget(Label(text=f"Umidade: {atual['humidity']}%", font_size=15))
