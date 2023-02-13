@@ -1,7 +1,6 @@
 
 # API básica de monitoramento do clima na região da cidade indicada.
 
-
 import requests
 import datetime as dt
 
