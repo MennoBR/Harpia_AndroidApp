@@ -18,10 +18,12 @@ class SegundaTela(GridLayout):
 
 
         atual = APIClimaNOW.get_atual("São Paulo")
-        info_box = BoxLayout(orientation='vertical', padding=[20, 20, 20, 20], size_hint_y=None, height=400)
+
+        info_box = BoxLayout(orientation='vertical', padding=[20, 20, 20, 20], size_hint_y=None, height=400,
+                             pos_hint={"center_x": 0.5, "center_y": 0.5})
         with info_box.canvas:
             Color(1, 1, 1, 1)
-            Rectangle(pos=info_box.pos, size=info_box.size)
+            Rectangle(pos=info_box.pos, size=info_box.size, )
         info_box.add_widget(Label(text=f"Cidade: {atual['city']}", font_size=15, color='green'))
         info_box.add_widget(Label(text=f"Temperatura: {atual['temperature']:.2f} °C", font_size=15, color='green'))
         info_box.add_widget(Label(text=f"Umidade: {atual['humidity']}%", font_size=15, color='green'))
