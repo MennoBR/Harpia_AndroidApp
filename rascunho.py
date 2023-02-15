@@ -1,7 +1,6 @@
 # Rascunho / Testes:
 
 #Aviator2ndTela.py funcional VR 1:
-
 '''# Segunda tela do APP: Mostrará informações metereológicas ao usuário da cidade escolhida.
 # Será acoplada com as informações da Api já criada "ClimaNOW"
 
