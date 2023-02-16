@@ -16,7 +16,7 @@ def get_weather(icao_code):
 
     if response.status_code == 200:
         data = response.json()
-        weather = {
+        clima = {
             'icao_code': data['local'],
             'temperature': data['temperatura'],
             'dew_point': data['temperatura_ponto_orvalho'],
@@ -25,7 +25,7 @@ def get_weather(icao_code):
             'pressure': data['pressao_atm'],
             'humidity': data['umidade_rel']
         }
-        return jsonify(weather)
+        return jsonify(clima)
     else:
         return jsonify({'error': 'Sem contato com a central, tente de novo.'}), 500
 
