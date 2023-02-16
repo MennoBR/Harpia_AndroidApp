@@ -1,28 +1,32 @@
 # Menu do ap com 5 botões para ser linkado com o main e a 2a tela.
 
 from kivy.app import App
-from kivy.uix.gridlayout import GridLayout
+from kivy.config import Config
 from kivy.uix.button import Button
+from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image import Image
 from kivy.graphics import Color, Rectangle
 
-class MainMenuScreen(GridLayout):
+# Travando a janela:
+Config.set('graphics', 'width', '400')
+Config.set('graphics', 'height', '600')
+
+#definindo a função:
+
+class MainMenuScreen(FloatLayout):
     def __init__(self, **kwargs):
         super(MainMenuScreen, self).__init__(**kwargs)
-        self.cols = 2
-
-
         with self.canvas.before:
-            Color(0.270, 0.345, 0.227, 1)
+            Color(255/255, 253/255, 208/255, 1)
             self.rect = Rectangle(size=self.size, pos=self.pos)
-        self.add_widget(Image(source="Harpialogo.jpeg", size_hint=(1, None), height=150))
+        self.add_widget(Image(source="Harpialogo.jpeg", size_hint=(1, None), height=100, pos_hint={'x': 0, 'top': 1} ))
 
-        # Add buttons
-        self.add_widget(Button(text='Button 1', background_color=(0.423, 0.486, 0.305, 1), background_normal=''))
-        self.add_widget(Button(text='Button 2', background_color=(0.423, 0.486, 0.305, 1), background_normal=''))
-        self.add_widget(Button(text='Button 3', background_color=(0.423, 0.486, 0.305, 1), background_normal=''))
-        self.add_widget(Button(text='Button 4', background_color=(0.423, 0.486, 0.305, 1), background_normal=''))
-        self.add_widget(Button(text='Button 5', background_color=(0.423, 0.486, 0.305, 1), background_normal=''))
+        # Adicionando butões
+        self.add_widget(Button(text='Button 1', size_hint=(0.4, 0.1), bold=True, background_color="green", background_normal='', pos_hint={'center_x': 0.5, 'center_y': 0.6}))
+        self.add_widget(Button(text='Button 2', size_hint=(0.4, 0.1), bold=True, background_color="green", background_normal='', pos_hint={'center_x': 0.5, 'center_y': 0.5}))
+        self.add_widget(Button(text='Button 3', size_hint=(0.4, 0.1), bold=True, background_color="green", background_normal='', pos_hint={'center_x': 0.5, 'center_y': 0.4}))
+        self.add_widget(Button(text='Button 4', size_hint=(0.4, 0.1), bold=True, background_color="green", background_normal='', pos_hint={'center_x': 0.5, 'center_y': 0.3}))
+        self.add_widget(Button(text='Button 5', size_hint=(0.4, 0.1), bold=True, background_color="green", background_normal='', pos_hint={'center_x': 0.5, 'center_y': 0.2}))
 
 class Harpia(App):
     def build(self):
