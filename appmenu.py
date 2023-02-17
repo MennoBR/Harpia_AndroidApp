@@ -7,6 +7,7 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image import Image
 from kivy.graphics import Color, Rectangle
 
+
 # Travando a janela:
 Config.set('graphics', 'width', '400')
 Config.set('graphics', 'height', '600')
@@ -26,9 +27,12 @@ class MainMenuScreen(FloatLayout):
         self.add_widget(
             Image(source="Harpialogo.jpeg", size_hint=(None, None), size=(150, 75), pos_hint={'x': 0.32, 'top': 0.95}))
 
-        # Adicionando butões
+        # Adicionando botões
         button_height = 0.1
         button_padding = 20
+        self.add_widget(
+            Button(text='<- Voltar', size_hint=(0.15, button_height), color="green", bold=True, background_color=(0, 0, 0, 0), background_normal='',
+                   pos_hint={'x': 0.03, 'top': 1}, border=(8, 8, 8, 8), padding=(button_padding, button_padding)))
         self.add_widget(
             Button(text='Selecionar Rota', size_hint=(0.4, button_height), bold=True, background_color="green",
                    background_normal='', pos_hint={'center_x': 0.5, 'center_y': 0.6},
@@ -62,6 +66,13 @@ class Harpia(App):
 
 if __name__ == "__main__":
     Harpia().run()
+
+
+
+
+
+
+
 
 
 
