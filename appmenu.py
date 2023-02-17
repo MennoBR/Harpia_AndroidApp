@@ -19,7 +19,7 @@ class MainMenuScreen(FloatLayout):
         super(MainMenuScreen, self).__init__(**kwargs)
 
         with self.canvas.before:
-            Color(1, 0.980, 0.941, 1)
+            Color(0.960784, 0.921569, 0.803922)
             self.rect = Rectangle(size=self.size)
             self.bind(size=self._update_rect)
 
