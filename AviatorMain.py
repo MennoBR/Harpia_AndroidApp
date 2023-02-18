@@ -9,7 +9,7 @@ from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.core.window import Window
 from kivy.clock import Clock
-
+import appmenu
 
 # Definindo Welcome/ Parâmetros
 
@@ -43,7 +43,6 @@ class Harpia(App):
 
     def pressiona(self, evento):
         self.greeting.text = "Olá Comandante " + self.user.text + '!'
-
         Clock.schedule_once(self.mostre_segunda, 2)
 
     def mostre_segunda(self, dt):
