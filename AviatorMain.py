@@ -1,5 +1,4 @@
 
-import APIClimaNOW
 import Aviator2ndTela
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
@@ -12,8 +11,12 @@ from kivy.core.window import Window
 from kivy.clock import Clock
 
 
+# Definindo Welcome/ Parâmetros
+
 class Harpia(App):
     def build(self):
+        Window.size = (600, 600)
+        Window.minimum_height, Window.minimum_width = Window.size
         self.window = GridLayout()
         self.window.cols = 1
         self.window.size_hint = (0.6, 0.7)
