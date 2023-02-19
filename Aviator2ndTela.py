@@ -7,7 +7,6 @@ from kivy.uix.label import Label
 from kivy.graphics import Color, Rectangle
 from kivy.uix.image import Image
 from kivy.uix.floatlayout import FloatLayout
-from kivy.core.window import Window
 from kivy.config import Config
 
 
@@ -18,6 +17,7 @@ Config.set('graphics', 'minimum_height', '300')
 Config.set('graphics', 'resizable', False)
 Config.set('graphics', 'window_state', 'maximized')
 
+#Definindo a base.
 class SegundaTela(GridLayout):
     def __init__(self, **kwargs):
         super(SegundaTela, self).__init__(**kwargs)
