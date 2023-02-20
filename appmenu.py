@@ -27,7 +27,7 @@ class MainMenuScreen(FloatLayout):
         self.add_widget(
             Image(source="Harpialogo.jpeg", size_hint=(None, None), size=(150, 75), pos_hint={'x': 0.32, 'top': 0.95}))
         self.add_widget(
-            Image(source="fotobranca.jpg", size_hint=(None, None), size=(90, 40), pos_hint={'x': 0.79, 'top': 1}))
+            Image(source="fotobranca.jpg", size_hint=(None, None), size=(90, 40), pos_hint={'x': 0.82, 'top': 1}))
 
         # Adicionando botões
         button_height = 0.1
