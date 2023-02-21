@@ -16,7 +16,7 @@ class RedemetApp(App):
         # create the layout
         layout = FloatLayout()
 
-        # Pegando as informações do clima da API:
+        # Pegando as informações do clima da API(com tratamento de erros e exceções):
         url = "http://api.redemet.aer.mil.br/api/v1/meteograma/prev/24/prognostico/80568?fields=temperature,relativeHumidity,windDirection,windSpeed,pressure,precipitation&api_key=xzvjAbr90ReXv02lZa8zWV4DPqzoNW1eaIiIopkF"
         try:
             response = requests.get(url)
@@ -48,7 +48,6 @@ class RedemetApp(App):
             layout.add_widget(precipitation_label)
 
         except requests.exceptions.RequestException as e:
-            # handle exceptions and display an error message
             error_label = Label(text=f"Erro: {str(e)}", font_size=20, pos_hint={"x": 0.05, "top": 0.9})
             layout.add_widget(error_label)
 
